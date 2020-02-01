@@ -1,0 +1,35 @@
+[
+    {
+        "Description": "Room 1",
+        "NorthDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "Bucket of Water"
+                    },
+        "EastDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": ""
+                    },
+        "SouthDoor":{
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": ""
+                    },
+        "WestDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": ""
+                    },
+        "Items": ["Torch", "Club", "Bread"],
+        "NPCs": [
+                {
+                    "Name": "Jürgen", 
+                    "Loot": "Key", 
+                    "Trade": "Bread", 
+                    "Health": "5", 
+                    "Damage": "1"
+                }
+                ]
+    }
+]
