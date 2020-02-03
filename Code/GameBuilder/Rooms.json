@@ -1,0 +1,205 @@
+[
+    {
+        "Name": "Dungeon Entrance",
+        "Description": "You are in the entrance of the dungeon. The way out is blocked.",
+        "NorthDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "Armory", 
+                        "OpenedBy": {"Name": "sword"},
+                        "LockedText": "The door is covered with vines. Find something to cut them."
+                    },
+        "EastDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "Prison Cell", 
+                        "OpenedBy": {"Name": "bucket of water"},
+                        "LockedText": "The door is on fire. Find something to put it out."
+                    },
+        "SouthDoor":{
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "",
+                        "LockedText": "The entrance collapsed. Try to find another way."
+                    },
+        "WestDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "",
+                        "LockedText": "You are looking at a wall."
+                    },
+        "Items": [],
+        "NPCs": [
+                {
+                    "Name": "Guardian", 
+                    "Loot": {"Name": "key", "Damage": "1", "HealthRegeneration": "0"}, 
+                    "Trade": {"Name": "bread"}, 
+                    "Health": "5", 
+                    "Damage": "1",
+                    "Text": "I am so hungry..."
+                }
+                ]
+    },
+
+    {
+        "Name": "Prison Cell",
+        "Description": "This room looks like a prison cell. There is something written on the wall.",
+        "NorthDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "",
+                        "LockedText": "You are looking at a wall."
+                    },
+        "EastDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "",
+                        "LockedText": "You are looking at a wall."
+                    },
+        "SouthDoor":{
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "",
+                        "LockedText": "You are looking at a wall."
+                    },
+        "WestDoor": {
+                        "isOpen": "true", 
+                        "LeadsTo": "Dungeon Entrance", 
+                        "OpenedBy": "",
+                        "LockedText": ""
+                    },
+        "Items": [{"Name": "password", "Damage": 0, "HealthRegeneration": "0"}],
+        "NPCs": []
+    },
+
+    {
+        "Name": "Armory",
+        "Description": "This was probably the armory. But most of the weapons are gone.",
+        "NorthDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "",
+                        "LockedText": "You are looking at a wall."
+                    },
+        "EastDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "Kitchen", 
+                        "OpenedBy": {"Name": "plank"},
+                        "LockedText": "The is a deep hole in the ground. It is too far for you to jump."
+                    },
+        "SouthDoor":{
+                        "isOpen": "true", 
+                        "LeadsTo": "Dungeon Entrance", 
+                        "OpenedBy": "",
+                        "LockedText": ""
+                    },
+        "WestDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "",
+                        "LockedText": "You are looking at a wall."
+                    },
+        "Items": [{"Name": "axe", "Damage": "4", "HealthRegeneration": "0"}, {"Name": "plank", "Damage": "1", "HealthRegeneration": "0"}],
+        "NPCs": []
+    },
+
+    {
+        "Name": "Kitchen",
+        "Description": "You have found the kitchen. Maybe you can find food here.",
+        "NorthDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "Sleeping Quarters", 
+                        "OpenedBy": {"Name": "key"},
+                        "LockedText": "This door is locked."
+                    },
+        "EastDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "",
+                        "LockedText": "You are looking at a wall."
+                    },
+        "SouthDoor":{
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "",
+                        "LockedText": "You are looking at a wall."
+                    },
+        "WestDoor": {
+                        "isOpen": "true", 
+                        "LeadsTo": "Armory", 
+                        "OpenedBy": "",
+                        "LockedText": ""
+                    },
+        "Items": [{"Name": "bucket of water", "Damage": "4", "HealthRegeneration": "0"}, {"Name": "bread", "Damage": "0", "HealthRegeneration": "2"}],
+        "NPCs": []
+    },
+
+    {
+        "Name": "Sleeping Quarters",
+        "Description": "You enter the sleeping quarters. There is someone in the room.",
+        "NorthDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "",
+                        "LockedText": "You are looking at a wall."
+                    },
+        "EastDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "",
+                        "LockedText": "You are looking at a wall."
+                    },
+        "SouthDoor":{
+                        "isOpen": "true", 
+                        "LeadsTo": "Kitchen", 
+                        "OpenedBy": "",
+                        "LockedText": ""
+                    },
+        "WestDoor": {
+                        "isOpen": "true", 
+                        "LeadsTo": "Treasury", 
+                        "OpenedBy": "",
+                        "LockedText": ""
+                    },
+        "Items": [],
+        "NPCs": [
+            {
+                "Name": "Guardian", 
+                "Loot": {"Name": "key", "Damage": "1", "HealthRegeneration": "0"}, 
+                "Trade": {"Name": "password"}, 
+                "Health": "10", 
+                "Damage": "6",
+                "Text": "Say the words and the treasure is yours."
+            }
+            ]
+    },
+
+    {
+        "Name": "Treasury",
+        "Description": "You have found the treasury! There is a treasure chest in the room. It seems to be alive...",
+        "NorthDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "",
+                        "LockedText": "You are looking at a wall."
+                    },
+        "EastDoor": {
+                        "isOpen": "true", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "",
+                        "LockedText": ""
+                    },
+        "SouthDoor":{
+                        "isOpen": "false", 
+                        "LeadsTo": "", 
+                        "OpenedBy": "",
+                        "LockedText": "You are looking at a wall."
+                    },
+        "WestDoor": {
+                        "isOpen": "false", 
+                        "LeadsTo": "GameEnd", 
+                        "OpenedBy": {"Name": "key"},
+                        "LockedText": "The is sunlight coming through the gaps of the door. This must be the way out."
+                    },
+        "Items": [{"Name": "treasure", "Damage": "1", "HealthRegeneration": "0"}],
+        "NPCs": []
+    }
+]
