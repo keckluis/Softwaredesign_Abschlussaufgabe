@@ -1,9 +1,10 @@
 {
     "GameStartText": "After a long journey you finally arrive at the dungeon. If the wanderer was right, the treasure is here. You enter the dungeon. The entrance behind you collapses.",
+    "GameEndText": "You found a way out! Time to return home and tell everybody about your adventure.",
     "Health": "10",
     "Inventory":
     [
-        {"Name": "sword", "Damage": "3", "HealthRegeneration": "0"},
+        {"Name": "sword", "Damage": "5", "HealthRegeneration": "0"},
         {"Name": "bread", "Damage": "0", "HealthRegeneration": "2"}
     ]
 }

@@ -7,43 +7,39 @@ namespace Softwaredesign_Abschlussaufgabe
     class Player
     {
         public string GameStartText;
+        public string GameEndText;
         public int Health;
         public List<Item> Inventory;
 
-        public Player(string _GameStartText, int _Health, List<Item> _Inventory)
+        public Player(string _GameStartText, string _GameEndText, int _Health, List<Item> _Inventory)
         {
             this.GameStartText = _GameStartText;
+            this.GameEndText = _GameEndText;
             this.Health = _Health;
             this.Inventory = _Inventory;
         }
 
         public void DisplayInventory()
         {
+            ForegroundColor = ConsoleColor.Cyan;
             if (this.Inventory.Count > 0)
             {
-                ForegroundColor = ConsoleColor.Cyan;
                 WriteLine("These items are in your inventory:");
-                ForegroundColor = ConsoleColor.White;
                 foreach (Item i in this.Inventory)
                     i.DisplayItem();
             }
             else
             {
-                ForegroundColor = ConsoleColor.Cyan;
                 WriteLine("Your inventory is empty.");
-                ForegroundColor = ConsoleColor.White;
             }
-
-            ForegroundColor = ConsoleColor.Cyan;
             WriteLine("Your health is at " + this.Health + "hp.");
-            ForegroundColor = ConsoleColor.White;
         }
 
-        public bool CheckInventory(Item _Item)
+        public bool CheckInventory(string _ItemName)
         {
             foreach (Item item in this.Inventory)
             {
-                if (item.Name == _Item.Name)
+                if (item.Name == _ItemName)
                     return true;
             }
             return false;
@@ -84,7 +80,6 @@ namespace Softwaredesign_Abschlussaufgabe
 
             ForegroundColor = ConsoleColor.Cyan;
             WriteLine("You don't have this item in your inventory.");
-            ForegroundColor = ConsoleColor.White;
         }
 
         public void TakeItem(Room _Room)
@@ -106,10 +101,8 @@ namespace Softwaredesign_Abschlussaufgabe
                 }
                 i++;
             }
-
             ForegroundColor = ConsoleColor.Cyan;
             WriteLine("This item is not in this room.");
-            ForegroundColor = ConsoleColor.White;
         }
 
         public void EatItem()
@@ -119,6 +112,7 @@ namespace Softwaredesign_Abschlussaufgabe
             ForegroundColor = ConsoleColor.White;
             Write(">");
             string input = ReadLine();
+            ForegroundColor = ConsoleColor.Cyan;
 
             int i = 0;
             foreach (Item item in this.Inventory)
@@ -133,23 +127,13 @@ namespace Softwaredesign_Abschlussaufgabe
                     }
                     else
                     {
-                        ForegroundColor = ConsoleColor.Cyan;
                         WriteLine("You shouldn't eat this item.");
-                        ForegroundColor = ConsoleColor.White;
                         return;
                     }
                 }
                 i++;
             }
-
-            ForegroundColor = ConsoleColor.Cyan;
             WriteLine("This item is not in your inventory.");
-            ForegroundColor = ConsoleColor.White;
-        }
-
-        public void FightNPC(NPC _NPC)
-        {
-
         }
     }
 }

@@ -31,31 +31,103 @@ namespace Softwaredesign_Abschlussaufgabe
             this.NPCs = _NPCs;
         }
 
-        public void RoomDescription()
+        public void DisplayRoom()
         {
             ForegroundColor = ConsoleColor.Magenta;
             WriteLine(this.Description);
-            ForegroundColor = ConsoleColor.White;
 
+            ForegroundColor = ConsoleColor.Cyan;
             if (this.Items.Count > 0)
             {
-                ForegroundColor = ConsoleColor.Cyan;
                 WriteLine("These items are in the " + this.Name + ":");
-                ForegroundColor = ConsoleColor.White;
-
                 foreach (Item i in this.Items)
                     i.DisplayItem();
             }
 
             if (this.NPCs.Count > 0)
             {
-                ForegroundColor = ConsoleColor.Cyan;
                 WriteLine("These characters are in the " + this.Name + ":");
-                ForegroundColor = ConsoleColor.White;
-
                 foreach (NPC n in this.NPCs)
                     n.DisplayNPC();
             }
+        }
+
+        public void RemoveNPC(NPC _NPC)
+        {
+            int i = 0;
+            foreach (NPC npc in this.NPCs)
+            {
+                if (npc.Name == _NPC.Name)
+                {
+                    NPCs.RemoveAt(i);
+                    return;
+                }
+                i++;
+            }
+            ForegroundColor = ConsoleColor.Cyan;
+            WriteLine(_NPC.Name + " is not in this room.");
+        }
+
+        public void TalkToNPC()
+        {
+            ForegroundColor = ConsoleColor.Cyan;
+            WriteLine("Who do you want to talk to?");
+            ForegroundColor = ConsoleColor.White;
+            Write(">");
+            string input = ReadLine();
+
+            foreach (NPC npc in this.NPCs)
+            {
+                if (input == npc.Name)
+                {
+                    ForegroundColor = ConsoleColor.Magenta;
+                    WriteLine(npc.Text);
+                    return;
+                }
+            }
+
+            ForegroundColor = ConsoleColor.Cyan;
+            WriteLine(input + " is not here.");
+        }
+
+        public void TradeWithNPC(Player _Player)
+        {
+            ForegroundColor = ConsoleColor.Cyan;
+            WriteLine("Who do you want to trade with?");
+            ForegroundColor = ConsoleColor.White;
+            Write(">");
+            string inputNPC = ReadLine();
+
+            ForegroundColor = ConsoleColor.Cyan;
+            foreach (NPC npc in this.NPCs)
+            {
+                if (inputNPC == npc.Name)
+                {
+                    npc.Trade(_Player);
+                    return;
+                }
+            }
+            WriteLine(inputNPC + " is not here.");
+        }
+
+        public void FightNPC(TextAdventure _TA)
+        {
+            ForegroundColor = ConsoleColor.Cyan;
+            WriteLine("Who do you want to fight?");
+            ForegroundColor = ConsoleColor.White;
+            Write(">");
+            string inputNPC = ReadLine();
+
+            foreach (NPC npc in _TA.CurrentRoom.NPCs)
+            {
+                if (inputNPC == npc.Name)
+                {
+                    npc.Fight(_TA);
+                    return;
+                }
+            }
+            ForegroundColor = ConsoleColor.Cyan;
+            WriteLine(inputNPC + " is not in this room.");
         }
     }
 }

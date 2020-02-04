@@ -8,48 +8,23 @@ namespace Softwaredesign_Abschlussaufgabe
 {
     class TextAdventure
     {
-        private static List<Room> Rooms;
-        private static Room CurrentRoom;
-        private static Player Player;
+        public List<Room> Rooms;
+        public Room CurrentRoom;
+        public Player Player;
 
-        public static bool GameOver = false;
+        public bool GameOver;
 
-        private static void Main(string[] args)
+        public TextAdventure(List<Room> _Rooms, Room _CurrentRoom, Player _Player)
         {
-            LoadGame();
+            this.Rooms = _Rooms;
+            this.CurrentRoom = _CurrentRoom;
+            this.Player = _Player;
+            this.GameOver = false;
         }
 
-        private static void LoadGame()
+        public void PlayGame()
         {
-            Rooms = new List<Room>();
-
-            using (StreamReader r = new StreamReader("../Softwaredesign_Abschlussaufgabe/Code/GameBuilder/Rooms.json"))
-            {
-                string json = r.ReadToEnd();
-                Rooms = JsonConvert.DeserializeObject<List<Room>>(json);
-            }
-
-            CurrentRoom = Rooms[0];
-
-            using (StreamReader r = new StreamReader("../Softwaredesign_Abschlussaufgabe/Code/GameBuilder/Player.json"))
-            {
-                string json = r.ReadToEnd();
-                Player = JsonConvert.DeserializeObject<Player>(json);
-            }
-
-            ForegroundColor = ConsoleColor.Magenta;
-            WriteLine(Player.GameStartText);
-
-            DisplayCommands();
-
-            CurrentRoom.RoomDescription();
-
-            PlayGame();
-        }
-
-        private static void PlayGame()
-        {
-            if (!GameOver)
+            if (!this.GameOver)
             {
                 ForegroundColor = ConsoleColor.Cyan;
                 WriteLine("What do you want to do?");
@@ -63,62 +38,70 @@ namespace Softwaredesign_Abschlussaufgabe
                 {
                     case "commands":
                     case "c":
-                        DisplayCommands();
+                        this.DisplayCommands();
                         break;
                     case "north":
                     case "n":
-                        TryToGoThroughDoor(CurrentRoom.NorthDoor);
+                        this.CurrentRoom.NorthDoor.TryToGoThrough(this);
                         break;
                     case "east":
                     case "e":
-                        TryToGoThroughDoor(CurrentRoom.EastDoor);
+                        this.CurrentRoom.EastDoor.TryToGoThrough(this);
                         break;
                     case "south":
                     case "s":
-                        TryToGoThroughDoor(CurrentRoom.SouthDoor);
+                        this.CurrentRoom.SouthDoor.TryToGoThrough(this);
                         break;
                     case "west":
                     case "w":
-                        TryToGoThroughDoor(CurrentRoom.WestDoor);
+                        this.CurrentRoom.WestDoor.TryToGoThrough(this);
                         break;
                     case "look":
                     case "l":
-                        CurrentRoom.RoomDescription();
+                        this.CurrentRoom.DisplayRoom();
                         break;
                     case "take item":
                     case "ti":
-                        Player.TakeItem(CurrentRoom);
+                        this.Player.TakeItem(this.CurrentRoom);
                         break;
                     case "drop item":
                     case "di":
-                        Player.DropItem(CurrentRoom);
+                        this.Player.DropItem(this.CurrentRoom);
                         break;
                     case "inventory":
                     case "i":
-                        Player.DisplayInventory();
+                        this.Player.DisplayInventory();
                         break;
                     case "eat item":
                     case "ei":
-                        Player.EatItem();
+                        this.Player.EatItem();
                         break;
                     case "attack":
                     case "a":
+                        this.CurrentRoom.FightNPC(this);
                         break;
                     case "talk":
                     case "tlk":
+                        this.CurrentRoom.TalkToNPC();
                         break;
                     case "trade":
                     case "trd":
+                        this.CurrentRoom.TradeWithNPC(this.Player);
+                        break;
+                    case "save game":
+                    case "sv":
+                        this.SaveGame();
                         break;
                     case "quit":
                     case "q":
-                        GameOver = true;
+                        this.GameOver = true;
                         break;
                     default:
+                        ForegroundColor = ConsoleColor.DarkRed;
                         WriteLine("Invalid command. Please try again.");
                         break;
                 }
-                PlayGame();
+                this.PlayGame();
             }
             else
             {
@@ -128,67 +111,39 @@ namespace Softwaredesign_Abschlussaufgabe
             }
         }
 
-        private static void TryToGoThroughDoor(Door _Door)
-        {
-            if (_Door.isOpen)
-            {
-                GoThroughDoor(_Door);
-            }
-            else
-            {
-                ForegroundColor = ConsoleColor.Magenta;
-                WriteLine(_Door.LockedText);
-                if (_Door.OpenedBy != null)
-                {
-                    ForegroundColor = ConsoleColor.Cyan;
-                    WriteLine("Choose the item you want to open the door with (it will be removed from your inventory):");
-                    ForegroundColor = ConsoleColor.White;
-                    Write(">");
-                    string input = ReadLine();
-
-                    if (input == _Door.OpenedBy.Name)
-                    {
-                        if (Player.CheckInventory(_Door.OpenedBy))
-                        {
-                            Player.RemoveFromInventory(_Door.OpenedBy);
-                            _Door.isOpen = true;
-                            GoThroughDoor(_Door);
-                        }
-                        else
-                        {
-                            ForegroundColor = ConsoleColor.Cyan;
-                            WriteLine("This item is not in your inventory.");
-                            ForegroundColor = ConsoleColor.White;
-                        }
-                    }
-                    else
-                    {
-                        ForegroundColor = ConsoleColor.Cyan;
-                        WriteLine("This item doesn't open the door.");
-                        ForegroundColor = ConsoleColor.White;
-                    }
-                }
-            }
-        }
-
-        private static void GoThroughDoor(Door _Door)
-        {
-            foreach (Room r in Rooms)
-            {
-                if (_Door.LeadsTo == r.Name)
-                {
-                    CurrentRoom = r;
-                    CurrentRoom.RoomDescription();
-                }
-            }
-        }
-
-        private static void DisplayCommands()
+        public void DisplayCommands()
         {
             ForegroundColor = ConsoleColor.Cyan;
             WriteLine("These are all possible commands:");
             ForegroundColor = ConsoleColor.White;
-            WriteLine("commands(c), north(n), east(e), south(s), west(w), look(l), take item(ti), drop item(di), inventory(i), eat item (ei), attack(a), talk(tlk), trade(trd), quit(q)");
+            WriteLine("commands(c), north(n), east(e), south(s), west(w), look(l), take item(ti), drop item(di), inventory(i), eat item(ei), attack(a), talk(tlk), trade(trd), quit(q)");
+        }
+
+        private void SaveGame()
+        {
+            ForegroundColor = ConsoleColor.Green;
+            WriteLine("Enter name you want for this save file. You'll need it to load this save later.");
+            ForegroundColor = ConsoleColor.White;
+            Write(">");
+            string input = ReadLine();
+
+            if (input != "")
+            {
+                this.Player.GameStartText = "";
+                using (StreamWriter file = File.CreateText(@"../Softwaredesign_Abschlussaufgabe/Code/SaveFiles/" + input + ".json"))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    serializer.Serialize(file, this);
+                }
+                ForegroundColor = ConsoleColor.Green;
+                WriteLine("Game saved.");
+            }
+            else
+            {
+                ForegroundColor = ConsoleColor.Red;
+                WriteLine("Please enter a name for your save file");
+                this.SaveGame();
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using static System.Console;
 
 namespace Softwaredesign_Abschlussaufgabe
@@ -17,6 +18,7 @@ namespace Softwaredesign_Abschlussaufgabe
 
         public void DisplayItem()
         {
+            ForegroundColor = ConsoleColor.White;
             WriteLine(this.Name + " (" + this.Damage + "dmg, " + this.HealthRegeneration + "reg)");
         }
     }

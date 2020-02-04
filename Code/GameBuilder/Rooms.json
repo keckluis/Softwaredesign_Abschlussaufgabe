@@ -31,9 +31,9 @@
                 {
                     "Name": "Guardian", 
                     "Loot": {"Name": "key", "Damage": "1", "HealthRegeneration": "0"}, 
-                    "Trade": {"Name": "bread"}, 
-                    "Health": "5", 
-                    "Damage": "1",
+                    "TradeItem": {"Name": "bread"}, 
+                    "Health": "10", 
+                    "Damage": "4",
                     "Text": "I am so hungry..."
                 }
                 ]
@@ -97,7 +97,7 @@
                         "OpenedBy": "",
                         "LockedText": "You are looking at a wall."
                     },
-        "Items": [{"Name": "axe", "Damage": "4", "HealthRegeneration": "0"}, {"Name": "plank", "Damage": "1", "HealthRegeneration": "0"}],
+        "Items": [{"Name": "axe", "Damage": "7", "HealthRegeneration": "0"}, {"Name": "plank", "Damage": "1", "HealthRegeneration": "0"}],
         "NPCs": []
     },
 
@@ -128,7 +128,7 @@
                         "OpenedBy": "",
                         "LockedText": ""
                     },
-        "Items": [{"Name": "bucket of water", "Damage": "4", "HealthRegeneration": "0"}, {"Name": "bread", "Damage": "0", "HealthRegeneration": "2"}],
+        "Items": [{"Name": "bucket of water", "Damage": "2", "HealthRegeneration": "0"}, {"Name": "bread", "Damage": "0", "HealthRegeneration": "2"}],
         "NPCs": []
     },
 
@@ -164,9 +164,9 @@
             {
                 "Name": "Guardian", 
                 "Loot": {"Name": "key", "Damage": "1", "HealthRegeneration": "0"}, 
-                "Trade": {"Name": "password"}, 
-                "Health": "10", 
-                "Damage": "6",
+                "TradeItem": {"Name": "password"}, 
+                "Health": "20", 
+                "Damage": "3",
                 "Text": "Say the words and the treasure is yours."
             }
             ]
