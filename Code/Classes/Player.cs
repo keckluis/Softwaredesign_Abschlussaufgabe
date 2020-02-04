@@ -30,9 +30,11 @@ namespace Softwaredesign_Abschlussaufgabe
             }
             else
             {
+                ForegroundColor = ConsoleColor.Red;
                 WriteLine("Your inventory is empty.");
             }
-            WriteLine("Your health is at " + this.Health + "hp.");
+            ForegroundColor = ConsoleColor.Green;
+            WriteLine("Your Health: " + this.Health + "hp");
         }
 
         public bool CheckInventory(string _ItemName)
@@ -72,13 +74,15 @@ namespace Softwaredesign_Abschlussaufgabe
                 if (item.Name == input)
                 {
                     _Room.Items.Add(item);
+                    ForegroundColor = ConsoleColor.Green;
+                    WriteLine("You dropped a " + item.Name + ".");
                     this.Inventory.RemoveAt(i);
                     return;
                 }
                 i++;
             }
 
-            ForegroundColor = ConsoleColor.Cyan;
+            ForegroundColor = ConsoleColor.Red;
             WriteLine("You don't have this item in your inventory.");
         }
 
@@ -96,12 +100,14 @@ namespace Softwaredesign_Abschlussaufgabe
                 if (item.Name == input)
                 {
                     this.Inventory.Add(item);
+                    ForegroundColor = ConsoleColor.Green;
+                    WriteLine("A " + item.Name + " was added to your inventory.");
                     _Room.Items.RemoveAt(i);
                     return;
                 }
                 i++;
             }
-            ForegroundColor = ConsoleColor.Cyan;
+            ForegroundColor = ConsoleColor.Red;
             WriteLine("This item is not in this room.");
         }
 
@@ -112,7 +118,6 @@ namespace Softwaredesign_Abschlussaufgabe
             ForegroundColor = ConsoleColor.White;
             Write(">");
             string input = ReadLine();
-            ForegroundColor = ConsoleColor.Cyan;
 
             int i = 0;
             foreach (Item item in this.Inventory)
@@ -122,17 +127,22 @@ namespace Softwaredesign_Abschlussaufgabe
                     if (item.HealthRegeneration > 0)
                     {
                         this.Health += item.HealthRegeneration;
+                        ForegroundColor = ConsoleColor.Green;
+                        WriteLine("You ate a " + item.Name + ".");
+                        WriteLine("Your Health: " + this.Health + "hp");
                         this.Inventory.RemoveAt(i);
                         return;
                     }
                     else
                     {
+                        ForegroundColor = ConsoleColor.Red;
                         WriteLine("You shouldn't eat this item.");
                         return;
                     }
                 }
                 i++;
             }
+            ForegroundColor = ConsoleColor.Red;
             WriteLine("This item is not in your inventory.");
         }
     }

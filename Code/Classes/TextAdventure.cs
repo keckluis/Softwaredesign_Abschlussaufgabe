@@ -97,7 +97,7 @@ namespace Softwaredesign_Abschlussaufgabe
                         this.GameOver = true;
                         break;
                     default:
-                        ForegroundColor = ConsoleColor.DarkRed;
+                        ForegroundColor = ConsoleColor.Red;
                         WriteLine("Invalid command. Please try again.");
                         break;
                 }
@@ -105,7 +105,7 @@ namespace Softwaredesign_Abschlussaufgabe
             }
             else
             {
-                ForegroundColor = ConsoleColor.DarkRed;
+                ForegroundColor = ConsoleColor.Yellow;
                 WriteLine("Game end.");
                 ForegroundColor = ConsoleColor.White;
             }
@@ -136,12 +136,12 @@ namespace Softwaredesign_Abschlussaufgabe
                     serializer.Serialize(file, this);
                 }
                 ForegroundColor = ConsoleColor.Green;
-                WriteLine("Game saved.");
+                WriteLine("Game saved (file name: " + input + ").");
             }
             else
             {
                 ForegroundColor = ConsoleColor.Red;
-                WriteLine("Please enter a name for your save file");
+                WriteLine("Please enter a name for your save file.");
                 this.SaveGame();
             }
         }

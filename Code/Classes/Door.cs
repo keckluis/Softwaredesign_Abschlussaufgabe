@@ -46,13 +46,13 @@ namespace Softwaredesign_Abschlussaufgabe
                         }
                         else
                         {
-                            ForegroundColor = ConsoleColor.Cyan;
+                            ForegroundColor = ConsoleColor.Red;
                             WriteLine("This item is not in your inventory.");
                         }
                     }
                     else
                     {
-                        ForegroundColor = ConsoleColor.Cyan;
+                        ForegroundColor = ConsoleColor.Red;
                         WriteLine("This item doesn't open the door.");
                     }
                 }

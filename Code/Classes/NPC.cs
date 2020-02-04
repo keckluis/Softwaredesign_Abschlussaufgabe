@@ -35,16 +35,19 @@ namespace Softwaredesign_Abschlussaufgabe
         {
             if (this.Loot == null)
             {
+                ForegroundColor = ConsoleColor.Red;
                 WriteLine(this.Name + " has nothing to trade.");
                 return;
             }
 
             if (this.TradeItem == null)
             {
+                ForegroundColor = ConsoleColor.Red;
                 WriteLine(this.Name + " does not want to trade with you.");
                 return;
             }
 
+            ForegroundColor = ConsoleColor.Cyan;
             WriteLine("What item do you want to offer " + this.Name + "?");
             ForegroundColor = ConsoleColor.White;
             Write(">");
@@ -71,14 +74,14 @@ namespace Softwaredesign_Abschlussaufgabe
                 }
                 else
                 {
-                    ForegroundColor = ConsoleColor.Cyan;
+                    ForegroundColor = ConsoleColor.Red;
                     WriteLine(this.Name + " has no interest in this item.");
                     return;
                 }
             }
             else
             {
-                ForegroundColor = ConsoleColor.Cyan;
+                ForegroundColor = ConsoleColor.Red;
                 WriteLine("This item is not in your inventory.");
                 return;
             }
@@ -105,9 +108,9 @@ namespace Softwaredesign_Abschlussaufgabe
                 this.Health -= weapon.Damage;
                 _TA.Player.Health -= this.Damage;
 
-                ForegroundColor = ConsoleColor.Red;
                 if (_TA.Player.Health <= 0)
                 {
+                    ForegroundColor = ConsoleColor.Red;
                     WriteLine("You died.");
                     _TA.GameOver = true;
                     return;
@@ -115,24 +118,29 @@ namespace Softwaredesign_Abschlussaufgabe
 
                 if (this.Health <= 0)
                 {
+                    ForegroundColor = ConsoleColor.Green;
                     WriteLine(this.Name + " died.");
-                    WriteLine("Your Health: " + _TA.Player.Health);
+                    WriteLine("Your Health: " + _TA.Player.Health + "hp");
 
                     if (this.Loot != null)
-                        _TA.Player.Inventory.Add(this.Loot);
-
+                    {
+                        _TA.CurrentRoom.Items.Add(this.Loot);
+                        WriteLine(this.Name + " dropped a " + this.Loot.Name + ".");
+                    }
                     _TA.CurrentRoom.RemoveNPC(this);
                     return;
                 }
 
-                WriteLine("Your Health: " + _TA.Player.Health);
-                WriteLine(this.Name + "'s Health: " + this.Health);
+                ForegroundColor = ConsoleColor.Green;
+                WriteLine("Your Health: " + _TA.Player.Health + "hp");
+                ForegroundColor = ConsoleColor.Red;
+                WriteLine(this.Name + "'s Health: " + this.Health + "hp");
 
                 return;
             }
             else
             {
-                ForegroundColor = ConsoleColor.Cyan;
+                ForegroundColor = ConsoleColor.Red;
                 WriteLine("This item is not in your inventory.");
                 return;
             }

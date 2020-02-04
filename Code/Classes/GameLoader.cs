@@ -16,8 +16,9 @@ namespace Softwaredesign_Abschlussaufgabe
         private static void LoadGame()
         {
             TextAdventure TA;
-            ForegroundColor = ConsoleColor.White;
+            ForegroundColor = ConsoleColor.Cyan;
             WriteLine("Type a number to choose your start settings:");
+            ForegroundColor = ConsoleColor.White;
             WriteLine("1. New Game");
             WriteLine("2. Load Game");
             WriteLine("3. Quit");
@@ -47,7 +48,9 @@ namespace Softwaredesign_Abschlussaufgabe
             }
             else if (input == "2")
             {
+                ForegroundColor = ConsoleColor.Cyan;
                 WriteLine("Whats the name of your save file? (Don't add the path or file type)");
+                ForegroundColor = ConsoleColor.White;
                 Write(">");
                 string inputFile = ReadLine();
 
@@ -65,7 +68,6 @@ namespace Softwaredesign_Abschlussaufgabe
                     WriteLine(e.Message);
                     ForegroundColor = ConsoleColor.Red;
                     WriteLine("Failed to load save file. Did you type the name correctly?");
-                    ForegroundColor = ConsoleColor.White;
                     LoadGame();
                 }
             }

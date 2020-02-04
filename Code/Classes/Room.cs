@@ -64,8 +64,6 @@ namespace Softwaredesign_Abschlussaufgabe
                 }
                 i++;
             }
-            ForegroundColor = ConsoleColor.Cyan;
-            WriteLine(_NPC.Name + " is not in this room.");
         }
 
         public void TalkToNPC()
@@ -85,8 +83,7 @@ namespace Softwaredesign_Abschlussaufgabe
                     return;
                 }
             }
-
-            ForegroundColor = ConsoleColor.Cyan;
+            ForegroundColor = ConsoleColor.Red;
             WriteLine(input + " is not here.");
         }
 
@@ -107,6 +104,7 @@ namespace Softwaredesign_Abschlussaufgabe
                     return;
                 }
             }
+            ForegroundColor = ConsoleColor.Red;
             WriteLine(inputNPC + " is not here.");
         }
 
@@ -126,8 +124,8 @@ namespace Softwaredesign_Abschlussaufgabe
                     return;
                 }
             }
-            ForegroundColor = ConsoleColor.Cyan;
-            WriteLine(inputNPC + " is not in this room.");
+            ForegroundColor = ConsoleColor.Red;
+            WriteLine(inputNPC + " is not here.");
         }
     }
 }

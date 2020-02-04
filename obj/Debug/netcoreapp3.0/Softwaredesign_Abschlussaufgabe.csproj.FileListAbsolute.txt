@@ -11,3 +11,16 @@ C:\Users\Luis\Documents\HFU\Softwaredesign_Abschlussaufgabe\obj\Debug\netcoreapp
 C:\Users\Luis\Documents\HFU\Softwaredesign_Abschlussaufgabe\obj\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.csproj.CopyComplete
 C:\Users\Luis\Documents\HFU\Softwaredesign_Abschlussaufgabe\obj\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.dll
 C:\Users\Luis\Documents\HFU\Softwaredesign_Abschlussaufgabe\obj\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.pdb
+C:\Users\luis9\Documents\HFU\Softwaredesign_Abschlussaufgabe\bin\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.exe
+C:\Users\luis9\Documents\HFU\Softwaredesign_Abschlussaufgabe\bin\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.deps.json
+C:\Users\luis9\Documents\HFU\Softwaredesign_Abschlussaufgabe\bin\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.runtimeconfig.json
+C:\Users\luis9\Documents\HFU\Softwaredesign_Abschlussaufgabe\bin\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.runtimeconfig.dev.json
+C:\Users\luis9\Documents\HFU\Softwaredesign_Abschlussaufgabe\bin\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.dll
+C:\Users\luis9\Documents\HFU\Softwaredesign_Abschlussaufgabe\bin\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.pdb
+C:\Users\luis9\Documents\HFU\Softwaredesign_Abschlussaufgabe\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\Users\luis9\Documents\HFU\Softwaredesign_Abschlussaufgabe\obj\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.csprojAssemblyReference.cache
+C:\Users\luis9\Documents\HFU\Softwaredesign_Abschlussaufgabe\obj\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.AssemblyInfoInputs.cache
+C:\Users\luis9\Documents\HFU\Softwaredesign_Abschlussaufgabe\obj\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.AssemblyInfo.cs
+C:\Users\luis9\Documents\HFU\Softwaredesign_Abschlussaufgabe\obj\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.csproj.CopyComplete
+C:\Users\luis9\Documents\HFU\Softwaredesign_Abschlussaufgabe\obj\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.dll
+C:\Users\luis9\Documents\HFU\Softwaredesign_Abschlussaufgabe\obj\Debug\netcoreapp3.0\Softwaredesign_Abschlussaufgabe.pdb
