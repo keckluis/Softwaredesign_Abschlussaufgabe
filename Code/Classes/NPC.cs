@@ -55,6 +55,8 @@ namespace Softwaredesign_Abschlussaufgabe
                 if (this.TradeItem.Name == inputItem)
                 {
                     _Player.Inventory.Add(this.Loot);
+                    ForegroundColor = ConsoleColor.Green;
+                    WriteLine(this.Name + " gave you a " + this.Loot.Name + ".");
                     this.Loot = null;
                     int i = 0;
                     foreach (Item item in _Player.Inventory)
@@ -114,6 +116,7 @@ namespace Softwaredesign_Abschlussaufgabe
                 if (this.Health <= 0)
                 {
                     WriteLine(this.Name + " died.");
+                    WriteLine("Your Health: " + _TA.Player.Health);
 
                     if (this.Loot != null)
                         _TA.Player.Inventory.Add(this.Loot);
