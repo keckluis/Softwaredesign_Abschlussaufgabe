@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "8gbiY3qM9sMM+sSW1i4gyl+QvVGfqcCS/xmIbySvPmWEa1+hZL7GdeYIxrCNMIdbWY+d6V+c6gKVzVvtMS8lUw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Luis\\Documents\\Repositories\\Softwaredesign_Abschlussaufgabe\\Softwaredesign_Abschlussaufgabe.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Luis\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

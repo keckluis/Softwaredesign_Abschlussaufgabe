@@ -1,14 +1,18 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.0": {
+    "net7.0": {
       "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         }
       }
     }
@@ -47,37 +51,34 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.0": [
+    "net7.0": [
       "Newtonsoft.Json >= 12.0.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\luis9\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Luis\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\luis9\\Documents\\HFU\\Softwaredesign_Abschlussaufgabe\\Softwaredesign_Abschlussaufgabe.csproj",
+      "projectUniqueName": "C:\\Users\\Luis\\Documents\\Repositories\\Softwaredesign_Abschlussaufgabe\\Softwaredesign_Abschlussaufgabe.csproj",
       "projectName": "Softwaredesign_Abschlussaufgabe",
-      "projectPath": "C:\\Users\\luis9\\Documents\\HFU\\Softwaredesign_Abschlussaufgabe\\Softwaredesign_Abschlussaufgabe.csproj",
-      "packagesPath": "C:\\Users\\luis9\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\luis9\\Documents\\HFU\\Softwaredesign_Abschlussaufgabe\\obj\\",
+      "projectPath": "C:\\Users\\Luis\\Documents\\Repositories\\Softwaredesign_Abschlussaufgabe\\Softwaredesign_Abschlussaufgabe.csproj",
+      "packagesPath": "C:\\Users\\Luis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Luis\\Documents\\Repositories\\Softwaredesign_Abschlussaufgabe\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\luis9\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Luis\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.0"
+        "netcoreapp7.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.0": {
+        "net7.0": {
+          "targetAlias": "netcoreapp7.0",
           "projectReferences": {}
         }
       },
@@ -88,7 +89,8 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.0": {
+      "net7.0": {
+        "targetAlias": "netcoreapp7.0",
         "dependencies": {
           "Newtonsoft.Json": {
             "target": "Package",
@@ -101,7 +103,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -110,7 +113,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
